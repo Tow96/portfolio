@@ -12,6 +12,10 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      screens: {
+        widescreen: { raw: '(min-aspect-ratio: 3/2)' },
+        tallscreen: { raw: '(max-aspect-ratio: 13/20)' },
+      },
     },
   },
   plugins: [],
