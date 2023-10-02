@@ -14,3 +14,8 @@ export const getProjects = async (): Promise<Project[]> =>
       content
     }`
   );
+
+export const getContactLinks = async (): Promise<ContactLink[]> =>
+  createClient(clientConfig).fetch(
+    groq`*[_type == "contact"]{_id, _createdAt, url, name } | order(name asc)`
+  );
