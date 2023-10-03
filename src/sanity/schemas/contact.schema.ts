@@ -1,4 +1,6 @@
-export const contact = {
+import { SchemaTypeDefinition } from 'sanity';
+
+export const contact: SchemaTypeDefinition = {
   name: 'contact',
   title: 'Contacts',
   type: 'document',
