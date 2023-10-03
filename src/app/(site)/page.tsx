@@ -5,8 +5,10 @@ import { NotesSection } from './_components/notes-section';
 const Home = () => (
   <main>
     <AboutSection />
+    <hr className="mx-auto mt-5 w-1/2 bg-black" />
     <FeaturedProjectsSection />
-    <NotesSection />
+    {/* <hr className="mx-auto mt-5 w-1/2 bg-black" />
+    <NotesSection /> */}
   </main>
 );
 

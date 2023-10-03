@@ -7,7 +7,7 @@ export const FeaturedProjectsSection = async () => {
   const featuredProjects = await getFeaturedProjects();
 
   return (
-    <section id="featured">
+    <section id="featured" className="section-min-height">
       <h2>Featured projects:</h2>
       <div className="flex justify-center">
         <ul className="grid grid-cols-3 gap-3">
