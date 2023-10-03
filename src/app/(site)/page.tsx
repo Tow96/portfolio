@@ -1,5 +1,13 @@
-import Image from 'next/image';
+import { AboutSection } from './_components/about-section';
+import { FeaturedProjectsSection } from './_components/featured-projects';
+import { NotesSection } from './_components/notes-section';
 
-export default function Home() {
-  return <main>HOME</main>;
-}
+const Home = () => (
+  <main>
+    <AboutSection />
+    <FeaturedProjectsSection />
+    <NotesSection />
+  </main>
+);
+
+export default Home;
