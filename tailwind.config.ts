@@ -14,7 +14,7 @@ const config: Config = {
       },
       colors: {
         ivory: '#fffded',
-        mint: '79c99e',
+        mint: '#79c99e',
         moonstone: '#69a2b0',
         persianOrange: '#e08e45',
         spaceCadet: '#2b2d42',
