@@ -7,7 +7,7 @@ interface ErrorProps {
 export default function GlobalError({ children }: ErrorProps) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body>{children}</body>
+      <body className="bg-ivory text-spaceCadet">{children}</body>
     </html>
   );
 }
