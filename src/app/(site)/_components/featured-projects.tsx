@@ -10,11 +10,11 @@ export const FeaturedProjectsSection = async () => {
     <section id="featured" className="section-min-height">
       <h2>Featured projects:</h2>
       <div className="flex justify-center">
-        <ul className="grid grid-cols-3 gap-3">
+        {/* <ul className="grid grid-cols-3 gap-3">
           {featuredProjects.map(project => (
             <FeaturedProjectCard key={project._id} project={project} />
           ))}
-        </ul>
+        </ul> */}
       </div>
     </section>
   );
