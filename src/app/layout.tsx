@@ -4,10 +4,10 @@ interface ErrorProps {
   children: ReactNode;
 }
 
-export default function GlobalError({ children }: ErrorProps) {
+export default function GlobalLayout({ children }: ErrorProps) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="bg-ivory text-spaceCadet">{children}</body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }

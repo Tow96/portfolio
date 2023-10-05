@@ -7,6 +7,14 @@ body {
 }
 
 @layer utilities {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-ivory text-spaceCadet;
+  }
+
   .section-min-height {
     min-height: 100vh;
   }
