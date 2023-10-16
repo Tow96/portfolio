@@ -1,19 +1,50 @@
+'use client';
+
 import { getFeaturedProjects } from '@/sanity/utils';
 import { FeaturedProject } from '@/types/project';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { use } from 'react';
+import Masonry from 'react-masonry-css';
 
-export const FeaturedProjectsSection = async () => {
-  const featuredProjects = await getFeaturedProjects();
+async function getProjects() {
+  return await getFeaturedProjects();
+}
+
+export const FeaturedProjectsSection = () => {
+  const projects = use(getProjects());
+
+  const breakpoints = {
+    default: 3,
+    1024: 2,
+    640: 1,
+  };
 
   return (
     <section className="section-min-height flex w-full justify-center bg-zinc-200">
-      <ul className="grid h-fit max-w-lg grow gap-4 p-4 pt-6 sm:max-w-none sm:grid-cols-2 md:max-w-5xl md:grid-cols-3">
-        {featuredProjects.map(project => (
-          <FeaturedProjectCard key={project._id} data={project} />
-        ))}
-      </ul>
+      <div className="max-w-5xl p-6">
+        <h3 className="text-2xl font-semibold">Projects</h3>
+
+        <p>These are some of the open source projects I have worked with.</p>
+
+        <div className="mt-6 flex justify-center">
+          <Masonry
+            breakpointCols={breakpoints}
+            className="-ml-7 flex h-fit  list-none "
+            columnClassName="pl-7">
+            {projects.map(project => (
+              <FeaturedProjectCard key={project._id} data={project} />
+            ))}
+          </Masonry>
+        </div>
+
+        <p>
+          A more extensive list can be found{' '}
+          <Link className="text-zinc-600 underline" href={'/projects'}>
+            here
+          </Link>
+        </p>
+      </div>
     </section>
   );
 };
@@ -25,7 +56,7 @@ const FeaturedProjectCard = ({ data }: { data: FeaturedProject }): JSX.Element =
 
   return (
     <Link href={`/projects/${data.slug}`}>
-      <li className="max-w-lg rounded-lg bg-zinc-300 p-3 shadow-md drop-shadow-md">
+      <li className="mb-7 rounded-lg bg-zinc-300 p-3 shadow-md drop-shadow-md">
         <div className="flex">
           <div className="flex grow flex-col">
             <h4 className="text-xl font-semibold">{data.name}</h4>
@@ -46,10 +77,11 @@ const FeaturedProjectCard = ({ data }: { data: FeaturedProject }): JSX.Element =
         {data.image.url && !data.image.logo && (
           <div className="relative mt-4 aspect-video overflow-hidden rounded-md">
             <Image
-              alt={data.image.alt}
+              alt={data.image.alt || 'project'}
               src={data.image.url}
               style={{ objectFit: 'cover', objectPosition: hotspot }}
               fill
+              sizes="512px"
             />
           </div>
         )}

@@ -14,6 +14,7 @@ export const project: SchemaTypeDefinition = {
       validation: Rule => Rule.required().max(140),
     },
     { name: 'featured', title: 'Featured', type: 'boolean' },
+    { name: 'featurePos', title: 'Featured Position', type: 'number' },
     {
       name: 'image',
       title: 'Image',

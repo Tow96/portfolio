@@ -32,7 +32,8 @@ export const getFeaturedProjects = async (): Promise<FeaturedProject[]> =>
       "logo": image.logo,
     },
     description,
-  }[0..4]`
+    featurePos
+  }[0..4] | order(featurePos asc)`
   );
 
 export const getContactLinks = async (): Promise<ContactLink[]> =>

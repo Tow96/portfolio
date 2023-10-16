@@ -14,6 +14,7 @@ type Project = {
   name: string;
   slug: string;
   url: string;
+  featurePos: number;
 };
 
 type FeaturedProject = Omit<Project, 'content' | 'url'>;
