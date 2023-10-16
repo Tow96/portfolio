@@ -9,6 +9,7 @@ type Project = {
     url: string;
     alt: string;
     hotspot: any;
+    logo: boolean;
   };
   name: string;
   slug: string;

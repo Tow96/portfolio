@@ -12,13 +12,11 @@ body {
   }
 
   body {
-    @apply bg-ivory text-spaceCadet;
+    @apply /*
+    @apply bg-ivory text-spaceCadet; */ text-zinc-900;
   }
 
   .section-min-height {
     min-height: 100vh;
-  }
-  .popped {
-    @apply bg-ivory drop-shadow-md;
   }
 }

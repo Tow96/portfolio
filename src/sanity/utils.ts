@@ -28,7 +28,8 @@ export const getFeaturedProjects = async (): Promise<FeaturedProject[]> =>
       "hotspot": {
         "x": image.hotspot.x,
         "y": image.hotspot.height / 2 - image.hotspot.y
-      }
+      },
+      "logo": image.logo,
     },
     description,
   }[0..4]`

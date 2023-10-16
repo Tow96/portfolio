@@ -19,7 +19,10 @@ export const project: SchemaTypeDefinition = {
       title: 'Image',
       type: 'image',
       options: { hotspot: true },
-      fields: [{ name: 'alt', title: 'Alt', type: 'string' }],
+      fields: [
+        { name: 'alt', title: 'Alt', type: 'string' },
+        { name: 'logo', title: 'Logo', type: 'boolean' },
+      ],
     },
     { name: 'content', title: 'Content', type: 'array', of: [{ type: 'block' }] },
     { name: 'url', title: 'URL', type: 'url' },
