@@ -36,10 +36,12 @@ export const getFeaturedProjects = async (): Promise<FeaturedProject[]> =>
   }[0..4] | order(featurePos asc)`
   );
 
-export const getContactLinks = async (): Promise<ContactLink[]> =>
-  createClient(clientConfig).fetch(
-    groq`*[_type == "contact"]{_id, _createdAt, url, name } | order(name asc)`
-  );
+export const getContactPage = async (): Promise<Contact> =>
+  (
+    await createClient(clientConfig).fetch<Contact[]>(
+      groq`*[_type == "contact"] | order(version desc)`
+    )
+  )[0];
 
 export const getAboutMe = async (): Promise<AboutMe> =>
   (

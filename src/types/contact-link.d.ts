@@ -1,6 +1,5 @@
-type ContactLink = {
+type Contact = {
   _id: string;
   _createdAt: Date;
-  name: string;
-  url: string;
+  links: { title: string; url: string; _key: string }[];
 };

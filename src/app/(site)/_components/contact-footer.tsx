@@ -1,9 +1,9 @@
-import { getContactLinks } from '@/sanity/utils';
+import { getContactPage } from '@/sanity/utils';
 import Link from 'next/link';
 
 export const ContactFooter = async () => {
   const copyYear = new Date().getFullYear();
-  const contactLinks = await getContactLinks();
+  const contactLinks = await getContactPage();
 
   return (
     <footer id="contact">
@@ -11,12 +11,12 @@ export const ContactFooter = async () => {
         <address className="not-italic">
           <h6 className="text-2xl font-semibold md:text-lg">Contact</h6>
           <ul>
-            {contactLinks.map(link => (
+            {contactLinks.links.map(link => (
               <li
-                key={link._id}
+                key={link._key}
                 className="pt-4 text-lg underline underline-offset-4 md:pt-2 md:text-sm">
                 <Link href={link.url} target="_blank" rel="noopener noreferrer">
-                  {link.name}
+                  {link.title}
                 </Link>
               </li>
             ))}
