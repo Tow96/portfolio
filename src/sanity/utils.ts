@@ -40,3 +40,24 @@ export const getContactLinks = async (): Promise<ContactLink[]> =>
   createClient(clientConfig).fetch(
     groq`*[_type == "contact"]{_id, _createdAt, url, name } | order(name asc)`
   );
+
+export const getAboutMe = async (): Promise<AboutMe> =>
+  (
+    await createClient(clientConfig).fetch<AboutMe[]>(
+      `*[_type == "aboutme"]{
+      _id,
+      _createdAt,
+      version,
+      blurbs,
+      "image": {
+        "url": image.asset->url,
+        "alt": image.alt,
+        "hotspot": {
+          "x": image.hotspot.x,
+          "y": image.hotspot.height / 2 - image.hotspot.y
+        },
+      },
+      paragraphs,
+    } | order(version desc)`
+    )
+  )[0];
