@@ -2,6 +2,7 @@ import { createClient, groq } from 'next-sanity';
 import { clientConfig } from './client.config';
 import { FeaturedProject, Project } from '@/types/project';
 
+// Projects -------------------------------------------------------------------
 export const getProjects = async (): Promise<Project[]> =>
   createClient(clientConfig).fetch(
     groq`*[_type == "project"]{
@@ -36,6 +37,7 @@ export const getFeaturedProjects = async (): Promise<FeaturedProject[]> =>
   }[0..4] | order(featurePos asc)`
   );
 
+// Contact --------------------------------------------------------------------
 export const getContactPage = async (): Promise<Contact> =>
   (
     await createClient(clientConfig).fetch<Contact[]>(
@@ -43,7 +45,8 @@ export const getContactPage = async (): Promise<Contact> =>
     )
   )[0];
 
-export const getAboutMe = async (): Promise<AboutMe> =>
+// About Me -------------------------------------------------------------------
+export const getAboutMePage = async (): Promise<AboutMe> =>
   (
     await createClient(clientConfig).fetch<AboutMe[]>(
       `*[_type == "aboutme"]{

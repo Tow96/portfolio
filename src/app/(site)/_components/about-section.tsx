@@ -1,8 +1,8 @@
-import { getAboutMe } from '@/sanity/utils';
+import { getAboutMePage } from '@/sanity/utils';
 import Image from 'next/image';
 
 export const AboutSection = async () => {
-  const aboutMe = await getAboutMe();
+  const aboutMe = await getAboutMePage();
   const hotspot = `${(aboutMe.image.hotspot.x * 100).toString() || 50}% ${
     (aboutMe.image.hotspot.y * 100).toString() || 50
   }%`;
