@@ -1,9 +1,11 @@
 import { SchemaTypeDefinition } from 'sanity';
+import { UserIcon } from '@sanity/icons';
 
 export const about: SchemaTypeDefinition = {
   name: 'aboutme',
   title: 'About Me',
   type: 'document',
+  icon: UserIcon,
   fields: [
     { name: 'version', title: 'Version', type: 'number' },
     {
@@ -36,4 +38,16 @@ export const about: SchemaTypeDefinition = {
       validation: Rule => Rule.max(5),
     },
   ],
+  preview: {
+    select: {
+      version: 'version',
+      date: '_createdAt',
+    },
+    prepare({ version, date }) {
+      return {
+        title: `Version: ${version}`,
+        subtitle: date,
+      };
+    },
+  },
 };
