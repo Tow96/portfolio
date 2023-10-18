@@ -1,13 +1,37 @@
-import { getProjects } from '@/sanity/utils';
+'use client';
 
-const ProjectsPage = async () => {
-  const projects = await getProjects();
+import { getProjects } from '@/sanity/utils';
+import { ProjectCard } from './_components/project-card';
+import Masonry from 'react-masonry-css';
+import { use } from 'react';
+
+async function fetch() {
+  return await getProjects();
+}
+
+const ProjectsPage = () => {
+  const projects = use(fetch());
+  const breakpoints = {
+    default: 4,
+    1024: 3,
+    768: 2,
+    640: 1,
+  };
 
   return (
-    <section>
-      {projects.map(project => (
-        <article key={project._id}>{project.name}</article>
-      ))}
+    <section className="flex justify-center">
+      <div className="m-4 max-w-6xl">
+        <h1>Projects</h1>
+        <p>These are all the open source projects I've worked on</p>
+        <Masonry
+          breakpointCols={breakpoints}
+          className="-ml-7 flex h-fit list-none"
+          columnClassName="pl-7">
+          {projects.map(project => (
+            <ProjectCard key={project._id} data={project} />
+          ))}
+        </Masonry>
+      </div>
     </section>
   );
 };

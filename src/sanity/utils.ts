@@ -10,9 +10,18 @@ export const getProjects = async (): Promise<Project[]> =>
       _createdAt,
       name,
       "slug": slug.current,
-      "imageUrl": image.asset->url,
       url,
       content,
+      description,
+      "image":  {
+        "url": image.asset->url,
+        "alt": image.alt,
+        "hotspot": {
+          "x": image.hotspot.x,
+          "y": image.hotspot.height / 2 - image.hotspot.y
+        },
+        "logo": image.logo,
+      },
     }`
   );
 

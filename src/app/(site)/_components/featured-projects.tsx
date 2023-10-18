@@ -29,7 +29,7 @@ export const FeaturedProjectsSection = () => {
         <div className="mt-6 flex justify-center">
           <Masonry
             breakpointCols={breakpoints}
-            className="-ml-7 flex h-fit  list-none "
+            className="-ml-7 flex h-fit list-none "
             columnClassName="pl-7">
             {projects.map(project => (
               <FeaturedProjectCard key={project._id} data={project} />
