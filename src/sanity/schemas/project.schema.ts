@@ -13,8 +13,6 @@ export const project: SchemaTypeDefinition = {
       type: 'string',
       validation: Rule => Rule.required().max(140),
     },
-    { name: 'featured', title: 'Featured', type: 'boolean' },
-    { name: 'featurePos', title: 'Featured Position', type: 'number' },
     {
       name: 'image',
       title: 'Image',
@@ -28,4 +26,16 @@ export const project: SchemaTypeDefinition = {
     { name: 'content', title: 'Content', type: 'array', of: [{ type: 'block' }] },
     { name: 'url', title: 'URL', type: 'url' },
   ],
+  preview: {
+    select: {
+      name: 'name',
+      slug: 'slug.current',
+    },
+    prepare({ name, slug }) {
+      return {
+        title: name,
+        subtitle: slug,
+      };
+    },
+  },
 };

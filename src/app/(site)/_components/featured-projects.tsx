@@ -1,6 +1,6 @@
 'use client';
 
-import { getFeaturedProjects } from '@/sanity/utils';
+import { getFeaturedProjectsPage } from '@/sanity/utils';
 import { FeaturedProject } from '@/types/project';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,12 +8,11 @@ import { use } from 'react';
 import Masonry from 'react-masonry-css';
 
 async function getProjects() {
-  return await getFeaturedProjects();
+  return await getFeaturedProjectsPage();
 }
 
 export const FeaturedProjectsSection = () => {
-  const projects = use(getProjects());
-
+  const { projects } = use(getProjects());
   const breakpoints = {
     default: 3,
     1024: 2,

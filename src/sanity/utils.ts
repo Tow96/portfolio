@@ -1,6 +1,6 @@
 import { createClient, groq } from 'next-sanity';
 import { clientConfig } from './client.config';
-import { FeaturedProject, Project } from '@/types/project';
+import { FeaturedProjectsPage, Project } from '@/types/project';
 
 // Projects -------------------------------------------------------------------
 export const getProjects = async (): Promise<Project[]> =>
@@ -16,26 +16,31 @@ export const getProjects = async (): Promise<Project[]> =>
     }`
   );
 
-export const getFeaturedProjects = async (): Promise<FeaturedProject[]> =>
-  createClient(clientConfig).fetch<FeaturedProject[]>(
-    `*[_type == "project" && featured == true]{
+// Featured Projects ----------------------------------------------------------
+export const getFeaturedProjectsPage = async (): Promise<FeaturedProjectsPage> =>
+  (
+    await createClient(clientConfig).fetch<FeaturedProjectsPage[]>(`*[_type == "featuredprojects"]{
     _id,
     _createdAt,
-    name,
-    "slug": slug.current,
-    "image": {
-      "url": image.asset->url,
-      "alt": image.alt,
-      "hotspot": {
-        "x": image.hotspot.x,
-        "y": image.hotspot.height / 2 - image.hotspot.y
-      },
-      "logo": image.logo,
-    },
-    description,
-    featurePos
-  }[0..4] | order(featurePos asc)`
-  );
+    version,
+    "projects": projects[] {
+      "_id": project->_id,
+      "_createdAt": project->_createdAt,
+      "name": project->name,
+      "slug": project->slug.current,
+      "description": project->description,
+      "image":  {
+        "url": project->image.asset->url,
+        "alt": project->image.alt,
+        "hotspot": {
+          "x": project->image.hotspot.x,
+          "y": project->image.hotspot.height / 2 - image.hotspot.y
+        },
+        "logo": project->image.logo,
+      }
+    }
+  }`)
+  )[0];
 
 // Contact --------------------------------------------------------------------
 export const getContactPage = async (): Promise<Contact> =>

@@ -3,18 +3,24 @@ import { PortableTextBlock } from 'sanity';
 type Project = {
   _id: string;
   _createdAt: Date;
-  content: PortableTextBlock[];
+  name: string;
+  slug: string;
   description: string;
+  url: string;
+  content: PortableTextBlock[];
   image: {
     url: string;
     alt: string;
-    hotspot: any;
+    hotspot: { x: number; y: number };
     logo: boolean;
   };
-  name: string;
-  slug: string;
-  url: string;
-  featurePos: number;
 };
 
 type FeaturedProject = Omit<Project, 'content' | 'url'>;
+
+type FeaturedProjectsPage = {
+  _id: string;
+  _createdAt: string;
+  version: number;
+  projects: FeaturedProject[];
+};
