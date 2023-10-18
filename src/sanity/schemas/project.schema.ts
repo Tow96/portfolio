@@ -6,7 +6,7 @@ export const project: SchemaTypeDefinition = {
   type: 'document',
   fields: [
     { name: 'name', title: 'Name', type: 'string' },
-    { name: 'slug', title: 'Slug', type: 'slug', options: { source: 'name' } },
+    // { name: 'slug', title: 'Slug', type: 'slug', options: { source: 'name' } },
     {
       name: 'description',
       title: 'Description',
@@ -23,18 +23,16 @@ export const project: SchemaTypeDefinition = {
         { name: 'logo', title: 'Logo', type: 'boolean' },
       ],
     },
-    { name: 'content', title: 'Content', type: 'array', of: [{ type: 'block' }] },
+    // { name: 'content', title: 'Content', type: 'array', of: [{ type: 'block' }] },
     { name: 'url', title: 'URL', type: 'url' },
   ],
   preview: {
     select: {
       name: 'name',
-      slug: 'slug.current',
     },
     prepare({ name, slug }) {
       return {
         title: name,
-        subtitle: slug,
       };
     },
   },

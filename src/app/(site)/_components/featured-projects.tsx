@@ -1,7 +1,6 @@
 'use client';
 
 import { getFeaturedProjectsPage } from '@/sanity/utils';
-import { FeaturedProject } from '@/types/project';
 import Image from 'next/image';
 import Link from 'next/link';
 import { use } from 'react';
@@ -54,7 +53,7 @@ const FeaturedProjectCard = ({ data }: { data: FeaturedProject }): JSX.Element =
   }%`;
 
   return (
-    <Link href={`/projects/${data.slug}`}>
+    <Link href={data.url || ''} target={data.url?.startsWith('http') ? '_blank' : '_self'}>
       <li className="mb-7 rounded-lg bg-zinc-300 p-3 shadow-md drop-shadow-md">
         <div className="flex">
           <div className="flex grow flex-col">

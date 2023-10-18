@@ -1,6 +1,5 @@
 import { createClient, groq } from 'next-sanity';
 import { clientConfig } from './client.config';
-import { FeaturedProjectsPage, Project } from '@/types/project';
 
 // Projects -------------------------------------------------------------------
 export const getProjects = async (): Promise<Project[]> =>
@@ -9,7 +8,7 @@ export const getProjects = async (): Promise<Project[]> =>
       _id,
       _createdAt,
       name,
-      "slug": slug.current,
+      // "slug": slug.current,
       url,
       content,
       description,
@@ -36,7 +35,8 @@ export const getFeaturedProjectsPage = async (): Promise<FeaturedProjectsPage> =
       "_id": project->_id,
       "_createdAt": project->_createdAt,
       "name": project->name,
-      "slug": project->slug.current,
+      // "slug": project->slug.current,
+      "url": project->url,
       "description": project->description,
       "image":  {
         "url": project->image.asset->url,

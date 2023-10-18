@@ -1,13 +1,11 @@
-import { PortableTextBlock } from 'sanity';
-
 type Project = {
   _id: string;
   _createdAt: Date;
   name: string;
-  slug: string;
+  // slug: string;
   description: string;
   url: string;
-  content: PortableTextBlock[];
+  // content: PortableTextBlock[];
   image: {
     url: string;
     alt: string;
@@ -16,7 +14,7 @@ type Project = {
   };
 };
 
-type FeaturedProject = Omit<Project, 'content' | 'url'>;
+type FeaturedProject = Omit<Project, 'content'>;
 
 type FeaturedProjectsPage = {
   _id: string;
