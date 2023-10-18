@@ -22,7 +22,7 @@ export const FeaturedProjectsSection = () => {
   return (
     <section className="section-min-height flex w-full justify-center bg-zinc-200">
       <div className="max-w-5xl p-6">
-        <h3 className="text-2xl font-semibold">Projects</h3>
+        <h2 className="text-2xl font-semibold">Projects</h2>
 
         <p>These are some of the open source projects I have worked with.</p>
 
@@ -58,7 +58,7 @@ const FeaturedProjectCard = ({ data }: { data: FeaturedProject }): JSX.Element =
       <li className="mb-7 rounded-lg bg-zinc-300 p-3 shadow-md drop-shadow-md">
         <div className="flex">
           <div className="flex grow flex-col">
-            <h4 className="text-xl font-semibold">{data.name}</h4>
+            <h3 className="text-xl font-semibold">{data.name}</h3>
             <p className="grow text-zinc-700">{data.description}</p>
           </div>
           {data.image.url && data.image.logo && (
