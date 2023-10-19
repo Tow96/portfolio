@@ -75,6 +75,10 @@ const config: Config = {
           950: 'hsl(235, 21%, 21%)',
         },
       },
+      fontFamily: {
+        sans: ['var(--font-raleway)'],
+        mono: ['var(--font-chivo-mono)'],
+      },
       screens: {
         widescreen: { raw: '(max-aspect-ratio: 3/2)' },
         tallscreen: { raw: '(max-aspect-ratio: 13/20)' },
