@@ -22,7 +22,7 @@ const ProjectsPage = () => {
     <section className="flex justify-center">
       <div className="m-4 max-w-6xl">
         <h1>Projects</h1>
-        <p>These are all the open source projects I've worked on</p>
+        <p>These are all the open source projects I&apos;ve worked on</p>
         <Masonry
           breakpointCols={breakpoints}
           className="-ml-7 flex h-fit list-none"
