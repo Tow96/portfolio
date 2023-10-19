@@ -17,7 +17,7 @@ const Navbar = () => {
     <div className="sticky top-0 z-50 flex justify-center space-x-10">
       <nav
         className={`m-3 mb-0 flex w-1/2 justify-between rounded-full p-1 px-3 transition-all xl:w-2/5 tallscreen:w-full ${
-          scrollY > 100 ? 'bg-zinc-600 text-zinc-100 shadow-lg' : 'bg-transparent'
+          scrollY > 100 ? 'bg-terracota-600 text-zinc-100 shadow-lg' : 'bg-transparent'
         }`}>
         <Link
           href="#home"

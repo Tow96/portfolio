@@ -10,7 +10,7 @@ export const AboutSection = async () => {
   return (
     <section
       id="about"
-      className="section-min-height relative flex justify-center bg-zinc-300 pt-12">
+      className="section-min-height relative flex justify-center bg-mandarine-400 pt-12">
       <div className="max-w-5xl px-6 py-6 sm:px-12">
         <h2 className="text-2xl font-semibold">About Me</h2>
         <ul>
@@ -22,7 +22,7 @@ export const AboutSection = async () => {
         </ul>
         <div className="flex pt-4">
           <div className="pr-4 lg:mt-auto lg:pb-12">
-            <div className="absolute right-7 top-6 aspect-square w-24 overflow-hidden rounded-full border-4 border-zinc-100 shadow-inner lg:relative lg:w-48">
+            <div className="absolute right-7 top-20 aspect-square w-24 overflow-hidden rounded-full border-4 border-zinc-100 shadow-inner lg:relative lg:w-48">
               <Image
                 alt={aboutMe.image.alt}
                 src={aboutMe.image.url}

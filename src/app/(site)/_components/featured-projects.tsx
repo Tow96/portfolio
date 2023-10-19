@@ -21,7 +21,7 @@ export const FeaturedProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="section-min-height flex w-full justify-center bg-zinc-200 pt-12">
+      className="section-min-height flex w-full justify-center bg-mandarine-100 pt-12">
       <div className="max-w-5xl p-6">
         <h2 className="text-2xl font-semibold">Projects</h2>
 
