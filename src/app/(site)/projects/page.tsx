@@ -3,14 +3,14 @@
 import { getProjects } from '@/sanity/utils';
 import { ProjectCard } from './_components/project-card';
 import Masonry from 'react-masonry-css';
-import { use } from 'react';
-
-async function fetch() {
-  return await getProjects();
-}
+import { useState, useEffect } from 'react';
 
 const ProjectsPage = () => {
-  const projects = use(fetch());
+  const [projects, setProjects] = useState<Project[]>([]);
+  useEffect(() => {
+    getProjects().then(r => setProjects(r));
+  }, []);
+
   const breakpoints = {
     default: 4,
     1024: 3,

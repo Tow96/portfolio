@@ -3,15 +3,16 @@
 import { getFeaturedProjectsPage } from '@/sanity/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { use } from 'react';
+import { useState, useEffect } from 'react';
 import Masonry from 'react-masonry-css';
 
-async function getProjects() {
-  return await getFeaturedProjectsPage();
-}
-
 export const FeaturedProjectsSection = () => {
-  const { projects } = use(getProjects());
+  const [projects, setProjects] = useState<FeaturedProject[]>([]);
+
+  useEffect(() => {
+    getFeaturedProjectsPage().then(res => setProjects(res.projects));
+  }, []);
+
   const breakpoints = {
     default: 3,
     1024: 2,
