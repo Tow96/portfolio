@@ -2,7 +2,6 @@ import '../globals.css';
 
 import type { Metadata } from 'next';
 // Components
-import Navbar from './_components/navbar';
 import { ContactFooter } from './_components/contact-footer';
 
 export const metadata: Metadata = {
@@ -15,7 +14,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <div className="flex min-h-screen flex-col justify-between">
-          {/* <Navbar /> */}
           {children}
           <ContactFooter />
         </div>

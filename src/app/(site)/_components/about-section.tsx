@@ -8,7 +8,9 @@ export const AboutSection = async () => {
   }%`;
 
   return (
-    <section className="section-min-height relative flex justify-center bg-zinc-300">
+    <section
+      id="about"
+      className="section-min-height relative flex justify-center bg-zinc-300 pt-12">
       <div className="max-w-5xl px-6 py-6 sm:px-12">
         <h2 className="text-2xl font-semibold">About Me</h2>
         <ul>

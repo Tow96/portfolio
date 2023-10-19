@@ -8,7 +8,6 @@ import Masonry from 'react-masonry-css';
 
 export const FeaturedProjectsSection = () => {
   const [projects, setProjects] = useState<FeaturedProject[]>([]);
-
   useEffect(() => {
     getFeaturedProjectsPage().then(res => setProjects(res.projects));
   }, []);
@@ -20,7 +19,9 @@ export const FeaturedProjectsSection = () => {
   };
 
   return (
-    <section className="section-min-height flex w-full justify-center bg-zinc-200">
+    <section
+      id="projects"
+      className="section-min-height flex w-full justify-center bg-zinc-200 pt-12">
       <div className="max-w-5xl p-6">
         <h2 className="text-2xl font-semibold">Projects</h2>
 
