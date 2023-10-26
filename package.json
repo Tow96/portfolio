@@ -12,11 +12,11 @@
   },
   "dependencies": {
     "@sanity/icons": "^2.6.0",
+    "masonic": "^3.7.0",
     "next": "latest",
     "next-sanity": "^5.5.4",
     "react": "latest",
     "react-dom": "latest",
-    "react-masonry-css": "^1.0.16",
     "sanity": "^3.16.7"
   },
   "devDependencies": {

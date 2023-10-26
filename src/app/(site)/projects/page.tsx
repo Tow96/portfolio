@@ -1,39 +1,34 @@
-'use client';
-
+// Libraries
+import { Suspense } from 'react';
+// Sanity
 import { getProjects } from '@/sanity/utils';
-import { ProjectCard } from './_components/project-card';
-import Masonry from 'react-masonry-css';
-import { useState, useEffect } from 'react';
+// Components
+import { ProjectMasonry } from './_components/project-masonry';
 
-const ProjectsPage = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  useEffect(() => {
-    getProjects().then(r => setProjects(r));
-  }, []);
+// TODO: remove dev timer
+// TODO: Set correct loading
 
-  const breakpoints = {
-    default: 4,
-    1024: 3,
-    768: 2,
-    640: 1,
-  };
-
-  return (
-    <section className="flex justify-center">
-      <div className="m-4 max-w-6xl">
-        <h1>Projects</h1>
-        <p>These are all the open source projects I&apos;ve worked on</p>
-        <Masonry
-          breakpointCols={breakpoints}
-          className="-ml-7 flex h-fit list-none"
-          columnClassName="pl-7">
-          {projects.map(project => (
-            <ProjectCard key={project._id} data={project} />
-          ))}
-        </Masonry>
-      </div>
-    </section>
-  );
+const pesto = async () => {
+  await new Promise(r => setTimeout(r, 3000));
+  return getProjects();
 };
+
+const ProjectMasonryWrapper = async () => {
+  const projects = await pesto();
+
+  return <ProjectMasonry projects={projects} />;
+};
+
+const ProjectsPage = async () => (
+  <section className="flex justify-center">
+    <div className="m-4 w-full max-w-6xl px-4">
+      <h1>Projects</h1>
+      <p>These are all the open source projects I&apos;ve worked on</p>
+      <Suspense fallback={<div>Loading-.....</div>}>
+        <ProjectMasonryWrapper />
+      </Suspense>
+    </div>
+  </section>
+);
 
 export default ProjectsPage;
