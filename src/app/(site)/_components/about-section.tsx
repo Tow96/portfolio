@@ -10,7 +10,7 @@ export const AboutSection = async () => {
   return (
     <section
       id="about"
-      className="section-min-height relative flex justify-center bg-mandarine-400 pt-12">
+      className="section-min-height bg-bianca-400 relative flex justify-center pt-12">
       <div className="max-w-5xl px-6 py-6 sm:px-12">
         <h2 className="text-2xl font-semibold">About Me</h2>
         <ul>
