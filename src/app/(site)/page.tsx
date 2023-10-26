@@ -1,7 +1,8 @@
-import { HeroSection } from './_components/hero-section';
-import { FeaturedProjectsSection } from './_components/featured-projects';
-import { AboutSection } from './_components/about-section';
-import Navbar from './_components/navbar';
+// Components
+import { HeroSection } from '@/components/hero-section';
+import { FeaturedProjectsSection } from '@/components/featured-projects';
+import { AboutSection } from '@/components/about-section';
+import Navbar from '@/components/navbar';
 
 const Home = () => (
   <main>

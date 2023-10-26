@@ -1,8 +1,8 @@
 import '../globals.css';
-
+// Libraries
 import type { Metadata } from 'next';
 // Components
-import { ContactFooter } from './_components/contact-footer';
+import { ContactFooter } from '@/components/contact-footer';
 
 export const metadata: Metadata = {
   title: 'José Tow - Portfolio',

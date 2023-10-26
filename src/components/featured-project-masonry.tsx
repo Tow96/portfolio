@@ -1,7 +1,8 @@
 'use client';
 // Libraries
-import { Masonry } from 'masonic';
 import { useState, useEffect } from 'react';
+// Components
+import { Masonry } from 'masonic';
 import Link from 'next/link';
 import Image from 'next/image';
 

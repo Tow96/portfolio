@@ -1,6 +1,8 @@
 'use client';
-import Link from 'next/link';
+// Libraries
 import { useEffect, useState } from 'react';
+// Components
+import Link from 'next/link';
 
 const Navbar = () => {
   const [scrollY, setScrollY] = useState(0);

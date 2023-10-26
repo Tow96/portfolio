@@ -1,7 +1,12 @@
+'use client';
+// Libraries
+import { Masonry } from 'masonic';
+import { useState, useEffect } from 'react';
+// Components
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const ProjectCard = ({ data }: { data: Project }): JSX.Element => {
+const ProjectCard = ({ data }: { data: Project }): JSX.Element => {
   const hotspot = `${(data.image.hotspot.x * 100).toString() || 50}% ${
     (data.image.hotspot.y * 100).toString() || 50
   }%`;
@@ -39,5 +44,25 @@ export const ProjectCard = ({ data }: { data: Project }): JSX.Element => {
         )}
       </li>
     </Link>
+  );
+};
+
+export const ProjectMasonry = ({ projects }: { projects: Project[] }): JSX.Element => {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => setIsClient(true), []);
+
+  return (
+    <>
+      {isClient && (
+        <Masonry
+          className="list-none"
+          items={projects}
+          columnGutter={24}
+          columnWidth={200}
+          maxColumnCount={5}
+          render={ProjectCard}
+        />
+      )}
+    </>
   );
 };

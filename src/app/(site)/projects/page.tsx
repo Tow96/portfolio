@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 // Sanity
 import { getProjects } from '@/sanity/utils';
 // Components
-import { ProjectMasonry } from './_components/project-masonry';
+import { ProjectMasonry } from '@/components/project-masonry';
 
 // TODO: remove dev timer
 // TODO: Set correct loading

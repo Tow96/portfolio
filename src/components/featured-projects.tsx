@@ -3,7 +3,7 @@ import { getFeaturedProjectsPage } from '@/sanity/utils';
 import { Suspense } from 'react';
 // Components
 import Link from 'next/link';
-import { FeaturedProjectMasonry } from './featured-project-masonry';
+import { FeaturedProjectMasonry } from '@/components/featured-project-masonry';
 
 // TODO: remove dev timer
 // TODO: Set correct loading
@@ -22,7 +22,7 @@ export const FeaturedProjectsSection = async () => {
   return (
     <section
       id="projects"
-      className="section-min-height bg-bianca-100 flex w-full justify-center pt-12">
+      className="section-min-height flex w-full justify-center bg-bianca-100 pt-12">
       <div className="w-full max-w-5xl p-6">
         <h2 className="text-2xl font-semibold">Projects</h2>
 

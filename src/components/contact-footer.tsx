@@ -1,4 +1,6 @@
+// Sanity
 import { getContactPage } from '@/sanity/utils';
+// Components
 import Link from 'next/link';
 
 export const ContactFooter = async () => {
