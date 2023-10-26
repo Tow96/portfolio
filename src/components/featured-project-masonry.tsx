@@ -13,7 +13,7 @@ const FeaturedProjectCard = ({ data }: { data: FeaturedProject }): JSX.Element =
 
   return (
     <Link href={data.url || ''} target={data.url?.startsWith('http') ? '_blank' : '_self'}>
-      <li className="rounded-lg bg-zinc-300 p-3 shadow-md drop-shadow-md">
+      <li className="relative rounded-lg bg-zinc-300 p-3 shadow-md drop-shadow-md transition-all hover:-top-2 hover:z-20 hover:shadow-lg hover:drop-shadow-lg">
         <div className="flex">
           <div className="flex grow flex-col">
             <h3 className="text-xl font-semibold">{data.name}</h3>
