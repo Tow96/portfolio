@@ -4,16 +4,10 @@ import { Suspense } from 'react';
 // Components
 import Link from 'next/link';
 import { FeaturedProjectMasonry } from '@/components/featured-project-masonry';
+import { Spinner } from '@/components/spinner';
 
-// TODO: remove dev timer
-// TODO: Set correct loading
-
-const pesto = async () => {
-  await new Promise(r => setTimeout(r, 3000));
-  return getFeaturedProjectsPage();
-};
 const FeaturedProjectMasonryWrapper = async () => {
-  const page = await pesto();
+  const page = await getFeaturedProjectsPage();
 
   return <FeaturedProjectMasonry projects={page.projects} />;
 };
@@ -22,32 +16,25 @@ export const FeaturedProjectsSection = async () => {
   return (
     <section
       id="projects"
-      className="section-min-height flex w-full justify-center bg-bianca-100 pt-12">
-      <div className="w-full max-w-5xl p-6">
-        <h2 className="text-2xl font-semibold">Projects</h2>
+      className="section-min-height flex w-full justify-center bg-bianca-100 pt-12 text-orange-900">
+      <div className="w-full max-w-5xl p-6 md:mt-12">
+        <h2 className="hidden">Projects</h2>
+        <h3 className="text-center text-2xl font-bold md:text-4xl">
+          These are some of the open source projects I have worked with.
+        </h3>
 
-        <p>These are some of the open source projects I have worked with.</p>
-
-        <div className="mt-6 flex justify-center">
-          <Suspense fallback={<div>LOADIGN....</div>}>
+        <div className="mt-6 flex justify-center md:py-12">
+          <Suspense fallback={<Spinner width="w-36" border="border-[12px]" />}>
             <FeaturedProjectMasonryWrapper />
           </Suspense>
-          {/* <Masonry
-            breakpointCols={breakpoints}
-            className="-ml-7 flex h-fit list-none "
-            columnClassName="pl-7">
-            {projects.map(project => (
-              <FeaturedProjectCard key={project._id} data={project} />
-            ))}
-          </Masonry> */}
         </div>
 
-        <p>
-          A more extensive list can be found{' '}
-          <Link className="text-zinc-600 underline" href={'/projects'}>
-            here
-          </Link>
-        </p>
+        <div className="pt-6 text-xl md:flex">
+          <h3 className="text-center font-semibold">A more extensive list can be found </h3>
+          <h4 className="text-center font-bold text-orange-700 underline hover:text-orange-600 active:text-orange-600 md:pl-1">
+            <Link href={'/projects'}>here</Link>
+          </h4>
+        </div>
       </div>
     </section>
   );
