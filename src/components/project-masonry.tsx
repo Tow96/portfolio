@@ -13,11 +13,11 @@ const ProjectCard = ({ data }: { data: Project }): JSX.Element => {
 
   return (
     <Link href={data.url || ''} target={data.url?.startsWith('http') ? '_blank' : '_self'}>
-      <li className="rounded-lg bg-zinc-300 p-3 shadow-md drop-shadow-md">
+      <li className="relative rounded-lg bg-orange-100 p-3 text-orange-900 shadow-md drop-shadow-md transition-all hover:-top-2 hover:z-20 hover:shadow-lg hover:drop-shadow-lg">
         <div className="flex">
           <div className="flex w-full grow flex-col break-words">
             <h3 className="text-xl font-semibold">{data.name}</h3>
-            <p className="text-zinc-700">{data.description}</p>
+            <p className="text-orange-700">{data.description}</p>
           </div>
           {data.image.url && data.image.logo && (
             <div className="relative m-4 aspect-square w-14">

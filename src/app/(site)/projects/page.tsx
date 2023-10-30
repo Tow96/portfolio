@@ -4,29 +4,32 @@ import { Suspense } from 'react';
 import { getProjects } from '@/sanity/utils';
 // Components
 import { ProjectMasonry } from '@/components/project-masonry';
-
-// TODO: remove dev timer
-// TODO: Set correct loading
-
-const pesto = async () => {
-  await new Promise(r => setTimeout(r, 3000));
-  return getProjects();
-};
+import { Spinner } from '@/components/spinner';
 
 const ProjectMasonryWrapper = async () => {
-  const projects = await pesto();
+  const projects = await getProjects();
 
   return <ProjectMasonry projects={projects} />;
 };
 
 const ProjectsPage = async () => (
-  <section className="flex justify-center">
+  <section className="flex justify-center text-orange-900">
     <div className="m-4 w-full max-w-6xl px-4">
-      <h1>Projects</h1>
-      <p>These are all the open source projects I&apos;ve worked on</p>
-      <Suspense fallback={<div>Loading-.....</div>}>
-        <ProjectMasonryWrapper />
-      </Suspense>
+      <h1 className="hidden">Projects</h1>
+      <h3 className="py-3 text-center text-2xl font-bold md:py-2">
+        Most of my work has been for private companies.
+      </h3>
+      <h3 className="py-3 text-center text-2xl font-bold md:py-2">
+        However, some of it has also been Open Source.
+      </h3>
+      <h3 className="py-3 text-center text-2xl font-bold md:py-2 md:pb-4">
+        This is a list of all of it.
+      </h3>
+      <div className="flex justify-center pt-4">
+        <Suspense fallback={<Spinner border="border-[12px]" width="w-72" />}>
+          <ProjectMasonryWrapper />
+        </Suspense>
+      </div>
     </div>
   </section>
 );
