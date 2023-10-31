@@ -13,11 +13,11 @@ const FeaturedProjectCard = ({ data }: { data: FeaturedProject }): JSX.Element =
 
   return (
     <Link href={data.url || ''} target={data.url?.startsWith('http') ? '_blank' : '_self'}>
-      <li className="relative rounded-lg bg-amber-100 p-3 text-amber-900 shadow-md drop-shadow-md transition-all hover:-top-2 hover:z-20 hover:shadow-lg hover:drop-shadow-lg">
+      <li className="relative rounded-lg bg-bianca-800 p-3 shadow-md drop-shadow-md transition-all hover:-top-2 hover:z-20 hover:shadow-lg hover:drop-shadow-lg">
         <div className="flex">
           <div className="flex grow flex-col">
             <h3 className="text-xl font-semibold">{data.name}</h3>
-            <p className="grow text-amber-800">{data.description}</p>
+            <p className="grow text-bianca-200">{data.description}</p>
           </div>
           {data.image.url && data.image.logo && (
             <div className="relative m-4 aspect-square w-14">

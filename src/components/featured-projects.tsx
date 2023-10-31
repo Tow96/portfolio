@@ -16,7 +16,7 @@ export const FeaturedProjectsSection = async () => {
   return (
     <section
       id="projects"
-      className="section-min-height flex w-full justify-center bg-bianca-100 pt-12 text-orange-900">
+      className="section-min-height flex w-full justify-center bg-bianca-900 pt-12 text-bianca-100">
       <div className="w-full max-w-5xl p-6 md:mt-12">
         <h2 className="hidden">Projects</h2>
         <h3 className="text-center text-2xl font-bold md:text-4xl">
@@ -31,7 +31,7 @@ export const FeaturedProjectsSection = async () => {
 
         <div className="pt-6 text-xl md:flex">
           <h3 className="text-center font-semibold">A more extensive list can be found </h3>
-          <h4 className="text-center font-bold text-orange-700 underline hover:text-orange-600 active:text-orange-600 md:pl-1">
+          <h4 className="text-center font-bold text-orange-600 underline hover:text-orange-500 active:text-orange-500 md:pl-1">
             <Link href={'/projects'}>here</Link>
           </h4>
         </div>
