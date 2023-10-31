@@ -13,7 +13,7 @@ const ProjectMasonryWrapper = async () => {
 };
 
 const ProjectsPage = async () => (
-  <section className="flex justify-center text-orange-900">
+  <section className="flex justify-center text-bianca-900">
     <div className="m-4 w-full max-w-6xl px-4">
       <h1 className="hidden">Projects</h1>
       <h3 className="py-3 text-center text-2xl font-bold md:py-2">
