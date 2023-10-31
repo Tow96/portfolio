@@ -11,5 +11,5 @@ type AboutMe = {
       y: number;
     };
   };
-  paragraphs: { title: string; text: string }[];
+  paragraphs: { title: string; text: PortableTextBlock[] }[];
 };

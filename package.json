@@ -11,6 +11,7 @@
     "format:fix": "prettier --write ."
   },
   "dependencies": {
+    "@portabletext/react": "^3.0.11",
     "@sanity/icons": "^2.6.0",
     "masonic": "^3.7.0",
     "next": "latest",

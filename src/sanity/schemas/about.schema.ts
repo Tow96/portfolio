@@ -31,7 +31,8 @@ export const about: SchemaTypeDefinition = {
           type: 'object',
           fields: [
             { name: 'title', title: 'Title', type: 'string' },
-            { name: 'text', title: 'Text', type: 'string' },
+            // { name: 'text', title: 'Text', type: 'string' },
+            { name: 'text', title: 'Text', type: 'array', of: [{ type: 'block' }] },
           ],
         },
       ],
