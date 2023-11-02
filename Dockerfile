@@ -16,7 +16,8 @@ COPY . .
 RUN npm run build
 
 # Runner ------------------------------------------------------------------------------------------
-FROM base AS runner
+FROM alpine:3.18.4 AS runner
+RUN apk add --update nodejs npm
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED 1
 
