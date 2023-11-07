@@ -1,17 +1,16 @@
 import { revalidateTag } from 'next/cache';
-import { NextResponse, NextRequest } from 'next/server';
-import { parseBody } from 'next-sanity/webhook';
+import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   try {
-    if (!process.env.SANITY_REVALIDATE_SECRET) {
-      const message = 'Revalidation disabled';
+    if (!process.env.SANITY_MANUAL_REVALIDATE_SECRET) {
+      const message = 'Manual revalidation disabled';
       return new NextResponse(JSON.stringify({ message }), { status: 405 });
     }
 
     const token = req.headers.get('Authorization');
     const body = await req.json();
-    if (token !== `Bearer ${process.env.SANITY_REVALIDATE_SECRET}`) {
+    if (token !== `Bearer ${process.env.SANITY_MANUAL_REVALIDATE_SECRET}`) {
       const message = 'Invalid credentials';
       return new NextResponse(JSON.stringify({ message }), { status: 401 });
     }

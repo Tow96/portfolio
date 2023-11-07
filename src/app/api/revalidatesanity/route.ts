@@ -4,14 +4,14 @@ import { parseBody } from 'next-sanity/webhook';
 
 export async function POST(req: NextRequest) {
   try {
-    if (!process.env.SANITY_REVALIDATE_SECRET) {
-      const message = 'Revalidation disabled';
+    if (!process.env.SANITY_HOOK_REVALIDATE_SECRET) {
+      const message = 'Webhook revalidation disabled';
       return new NextResponse(JSON.stringify({ message }), { status: 405 });
     }
 
     const { isValidSignature, body } = await parseBody<{ _type: string }>(
       req,
-      process.env.SANITY_REVALIDATE_SECRET
+      process.env.SANITY_HOOK_REVALIDATE_SECRET
     );
 
     if (!isValidSignature) {
