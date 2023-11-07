@@ -19,7 +19,7 @@ export const getProjects = async (): Promise<Project[]> =>
         "alt": image.alt,
         "hotspot": {
           "x": image.hotspot.x,
-          "y": image.hotspot.height / 2 - image.hotspot.y
+          "y": image.hotspot.y
         },
         "logo": image.logo,
       },
@@ -48,7 +48,7 @@ export const getFeaturedProjectsPage = async (): Promise<FeaturedProjectsPage> =
             "alt": project->image.alt,
             "hotspot": {
               "x": project->image.hotspot.x,
-              "y": project->image.hotspot.height / 2 - image.hotspot.y
+              "y": project->image.hotspot.y
             },
             "logo": project->image.logo,
           }
@@ -83,7 +83,7 @@ export const getAboutMePage = async (): Promise<AboutMe> =>
         "alt": image.alt,
         "hotspot": {
           "x": image.hotspot.x,
-          "y": image.hotspot.height / 2 - image.hotspot.y
+          "y": image.hotspot.y
         },
       },
       paragraphs,

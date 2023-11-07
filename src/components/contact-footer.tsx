@@ -11,7 +11,7 @@ export const ContactFooter = async () => {
     <footer id="contact">
       <section className="max-w-4-xl mx-auto bg-bianca-950 p-4 pb-0 text-bianca-50">
         <address className="not-italic">
-          <h6 className="text-2xl font-semibold md:text-lg">Contact</h6>
+          <h2 className="text-2xl font-semibold md:text-lg">Contact</h2>
           <ul>
             {contactLinks.links.map(link => (
               <li

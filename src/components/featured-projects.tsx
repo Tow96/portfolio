@@ -30,10 +30,14 @@ export const FeaturedProjectsSection = async () => {
         </div>
 
         <div className="pt-6 text-xl md:flex">
-          <h3 className="text-center font-semibold">A more extensive list can be found </h3>
-          <h4 className="text-center font-bold text-orange-600 underline hover:text-orange-500 active:text-orange-500 md:pl-1">
-            <Link href={'/projects'}>here</Link>
-          </h4>
+          <p className="text-center font-semibold">
+            For a more extensive list, check all my{' '}
+            <Link
+              href={'/projects'}
+              className="font-bold text-orange-600 underline hover:text-orange-500 active:text-orange-500 md:pl-1">
+              projects
+            </Link>
+          </p>
         </div>
       </div>
     </section>
