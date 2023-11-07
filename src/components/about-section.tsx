@@ -18,9 +18,9 @@ export const AboutSection = async () => {
         {/* Title */}
         <h2 className="text-4xl font-semibold">About Me</h2>
         {/* Blurbs */}
-        <ul>
+        <ul className="min-h-[48px] w-4/5 md:w-full">
           {aboutMe.blurbs.map((blurb, i) => (
-            <li key={i} className="min-h-[48px] text-lg text-bianca-800">
+            <li key={i} className="text-lg text-bianca-800">
               {blurb}
             </li>
           ))}
@@ -29,7 +29,7 @@ export const AboutSection = async () => {
         <div className="flex pt-4">
           {/* Image */}
           <div className="pr-4 lg:mb-36 lg:mt-auto">
-            <div className="absolute right-7 top-20 aspect-square w-24 overflow-hidden rounded-full border-4 border-zinc-100 shadow-inner lg:relative lg:w-48">
+            <div className="absolute right-7 top-20 aspect-square w-20 overflow-hidden rounded-full border-4 border-zinc-100 shadow-inner lg:relative lg:w-48">
               <Image
                 alt={aboutMe.image.alt}
                 src={aboutMe.image.url}
