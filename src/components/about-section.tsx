@@ -6,9 +6,9 @@ import { PortableText } from '@portabletext/react';
 
 export const AboutSection = async () => {
   const aboutMe = await getAboutMePage();
-  const hotspot = `${(aboutMe.image.hotspot.x * 100).toString() || 50}% ${
-    (aboutMe.image.hotspot.y * 100).toString() || 50
-  }%`;
+  const hotspotParams = `fp-x=${
+    aboutMe.image.hotspot.x === null ? 0.5 : aboutMe.image.hotspot.x
+  }&fp-y=${aboutMe.image.hotspot.y === null ? 0.5 : aboutMe.image.hotspot.y}`;
 
   return (
     <section
@@ -18,9 +18,9 @@ export const AboutSection = async () => {
         {/* Title */}
         <h2 className="text-4xl font-semibold">About Me</h2>
         {/* Blurbs */}
-        <ul className="min-h-[48px] w-4/5 md:w-full">
+        <ul className="min-h-[48px] w-4/6 md:w-full">
           {aboutMe.blurbs.map((blurb, i) => (
-            <li key={i} className="text-lg text-bianca-800">
+            <li key={i} className="text-bianca-800 md:text-lg">
               {blurb}
             </li>
           ))}
@@ -31,9 +31,9 @@ export const AboutSection = async () => {
           <div className="pr-4 lg:mb-36 lg:mt-auto">
             <div className="absolute right-7 top-20 aspect-square w-20 overflow-hidden rounded-full border-4 border-zinc-100 shadow-inner lg:relative lg:w-48">
               <Image
-                alt={aboutMe.image.alt}
-                src={aboutMe.image.url}
-                style={{ objectFit: 'cover', objectPosition: hotspot }}
+                alt={aboutMe.image.alt || 'Me'}
+                src={`${aboutMe.image.url}?w=184&h=184&fit=crop&${hotspotParams}`}
+                style={{ objectFit: 'cover' }}
                 fill
                 sizes="(min-width: 1024px) 12rem, 6rem"
               />
